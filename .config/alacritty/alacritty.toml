@@ -1,1 +1,8 @@
 import = ["~/.config/alacritty/dracula.toml"]
+
+[cursor]
+style = "Beam"
+
+[window.padding]
+x = 6
+y = 6
