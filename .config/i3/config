@@ -254,7 +254,9 @@ exec_always xrandr --output HDMI-0 --mode 1920x1080 --pos 3440x360 --rotate norm
 exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh,secrets,pkcs11
 
 default_border pixel 2
-#hide_edge_borders smart
+hide_edge_borders smart
 bindsym Print exec flameshot gui
 gaps inner 6px
 #gaps outer 2px
+smart_gaps true
+
