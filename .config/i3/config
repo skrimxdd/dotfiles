@@ -56,6 +56,7 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+b exec --no-startup-id thorium-browser
 bindsym $mod+e exec --no-startup-id thunar
 bindsym $mod+s exec --no-startup-id spotify-launcher
+bindsym $mod+d exec --no-startup-id vesktop
 
 # kill focused window
 bindsym $mod+q kill
