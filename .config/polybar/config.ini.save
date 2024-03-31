@@ -18,6 +18,7 @@
 
 [colors]
 background = #282a36
+transparent = #00282a36
 background-alt = #44475a
 foreground = #f8f8f2
 primary = #6272A4
@@ -25,31 +26,32 @@ secondary = #bd93f9
 alert = #ff5555
 disabled = #6272a4
 
+[global/wm]
+margin-top = 4px
+
 [bar/bar2]
 monitor = HDMI-0
 width = 100%
-height = 20pt
-radius = 0
+height = 24px
+#border-top-size = 6px
+#border-left-size = 6px
+#border-right-size = 6px
+border-bottom-size = 2px
+border-color = ${colors.primary}
 
-; dpi = 109
+; dpi = 0
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
 line-size = 3pt
 
-border-size = 0px
-border-color = #00000000
-
 padding-left = 0
 padding-right = 1
 
-module-margin = 1
+#module-margin = 1
 
-#seperator = |
-#separator-foreground = ${colors.disabled}
-
-font-0 = Noto Sans Nerd Font;2
+font-0 = Noto Sans Nerd Font:size=12;3
 
 modules-left = xworkspaces
 modules-center =
@@ -66,35 +68,30 @@ enable-ipc = true
 
 ; override-redirect = true
 
-
 [bar/bar]
 width = 100%
-height = 20pt
-radius = 0
-
-; dpi = 109
+height = 24px
+#border-top-size = 6px
+#border-left-size = 6px
+#border-right-size = 6px 
+border-bottom-size = 2px
 
 background = ${colors.background}
 foreground = ${colors.foreground}
+border-color = ${colors.primary}
 
 line-size = 3pt
-
-border-size = 0px
-border-color = #00000000
 
 padding-left = 0
 padding-right = 1
 
 module-margin = 1
 
-#seperator = |
-#separator-foreground = ${colors.foreground}
+font-0 = Noto Sans Nerd Font:size=12;3
 
-font-0 = Noto Sans Nerd Font;2
-
-modules-left = xworkspaces xwindow
+modules-left = xworkspaces
 modules-center = xwindow
-modules-right = systray mic-volume pavolume network-base date
+modules-right = systray memory cpu dsbattery network-base mic-volume pavolume date
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -104,14 +101,15 @@ enable-ipc = true
 ; wm-restack = generic
 ; wm-restack = bspwm
 ; wm-restack = i3
-
-; override-redirect = true
+override-redirect = false
 
 [module/systray]
 type = internal/tray
 
-format-margin = 0pt
+format-margin = 6px
 tray-spacing = 6pt
+
+format-background = ${colors.background}
 
 [module/xworkspaces]
 type = internal/xworkspaces
@@ -120,12 +118,12 @@ reverse_scroll = false
 
 label-active = %name%
 label-active-foreground = ${colors.background}
-
 label-active-background = ${colors.primary}
 label-active-padding = 1
 label-active-margin = 1
 
 label-occupied = %name%
+label-occupied-background = ${colors.background}
 label-occupied-padding = 1
 label-occupied-margin = 1
 
@@ -156,7 +154,7 @@ label-unmounted-foreground = ${colors.disabled}
 
 [module/mic-volume]
 type = custom/script
-interval = 1
+interval = 0.1
 format-prefix = "󰍬 "
 format-prefix-foreground = ${colors.primary}
 format = <label>
@@ -191,7 +189,7 @@ format-volume = <label-volume>
 
 label-volume = %percentage%%
 
-label-muted = 󰝟
+label-muted = "󰝟 "
 label-muted-foreground = ${colors.primary}
 
 [module/xkeyboard]
@@ -209,16 +207,16 @@ label-indicator-background = ${colors.secondary}
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = "RAM "
+format-prefix = " "
 format-prefix-foreground = ${colors.primary}
-label = %percentage_used:2%%
+label = "%gb_used% "
 
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = "CPU "
+format-prefix = " "
 format-prefix-foreground = ${colors.primary}
-label = %percentage:2%%
+label = "%percentage:2%% "
 
 [network-base]
 type = internal/network
@@ -244,7 +242,7 @@ interval = 1
 format-prefix = "  "
 format-prefix-foreground = ${colors.primary}
 
-date = %H:%M
+date = "%d.%m / %H:%M "
 date-alt = %d.%m.%Y %H:%M:%S
 
 label = %date%
@@ -255,3 +253,12 @@ screenchange-reload = true
 pseudo-transparency = true
 
 ; vim:ft=dosini
+
+[module/dsbattery]
+type = custom/script
+exec = dsbattery
+interval = 1
+click-right = dsbattery -d
+format-prefix = "󰊴 "
+format-prefix-foreground = ${colors.primary}
+

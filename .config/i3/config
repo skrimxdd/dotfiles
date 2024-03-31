@@ -53,9 +53,9 @@ tiling_drag modifier titlebar
 
 #start applications
 bindsym $mod+Return exec alacritty
-bindsym $mod+b exec thorium-browser
-bindsym $mod+e exec thunar
-bindsym $mod+s exec spotify-launcher
+bindsym $mod+b exec --no-startup-id thorium-browser
+bindsym $mod+e exec --no-startup-id thunar
+bindsym $mod+s exec --no-startup-id spotify-launcher
 
 # kill focused window
 bindsym $mod+q kill
