@@ -7,5 +7,3 @@ dunst
 using https://github.com/dracula/dracula-theme
 
 my configs look fucked up i dont care tbh xdd
-
-also shoutout to [this chad](https://github.com/vars1ty/NVIDIA-X11) for fixing my refreshrates
