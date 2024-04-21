@@ -1,3 +1,3 @@
-# this is just so I can remember what apps I had installed in case of a reinstall.
-arch repo      thunar xarchiver alacritty flameshot rofi dunst polybar i3-wm helvum galculator spotify-launcher steam 
+# this is just so I can remember what apps I had installed in case of a reinstall. just ignore it
+arch repos     thunar xarchiver alacritty flameshot rofi dunst polybar i3-wm helvum galculator spotify-launcher steam 
 aur            vesktop picom-ftlabs-git  
