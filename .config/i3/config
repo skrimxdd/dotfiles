@@ -1,5 +1,6 @@
 set $fm DP-4
 set $sm HDMI-0
+set $tm DP-0
 
 set $mod Mod4
 
@@ -82,11 +83,18 @@ workspace 7 output $fm
 workspace 8 output $fm
 workspace 9 output $fm
 workspace 10 output $fm
+
 workspace 11 output $sm
 workspace 12 output $sm
 workspace 13 output $sm
 workspace 14 output $sm
 workspace 15 output $sm
+
+workspace 21 output $tm
+workspace 22 output $tm
+workspace 23 output $tm
+workspace 24 output $tm
+workspace 25 output $tm
 
 set $ws1 "1"
 set $ws2 "2"
@@ -103,6 +111,11 @@ set $ws12 "12"
 set $ws13 "13"
 set $ws14 "14"
 set $ws15 "15"
+set $ws21 "21"
+set $ws22 "22"
+set $ws23 "23"
+set $ws24 "24"
+set $ws25 "25"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -120,6 +133,11 @@ bindsym Mod1+2 workspace number $ws12
 bindsym Mod1+3 workspace number $ws13
 bindsym Mod1+4 workspace number $ws14
 bindsym Mod1+5 workspace number $ws15
+bindsym $mod+Mod1+1 workspace number $ws21
+bindsym $mod+Mod1+2 workspace number $ws22
+bindsym $mod+Mod1+3 workspace number $ws23
+bindsym $mod+Mod1+4 workspace number $ws24
+bindsym $mod+Mod1+5 workspace number $ws25
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -137,6 +155,11 @@ bindsym Mod1+Shift+2 move container to workspace number $ws12
 bindsym Mod1+Shift+3 move container to workspace number $ws13
 bindsym Mod1+Shift+4 move container to workspace number $ws14
 bindsym Mod1+Shift+5 move container to workspace number $ws15
+bindsym $mod+Mod1+Shift+1 move container to workspace number $ws21
+bindsym $mod+Mod1+Shift+2 move container to workspace number $ws22
+bindsym $mod+Mod1+Shift+3 move container to workspace number $ws23
+bindsym $mod+Mod1+Shift+4 move container to workspace number $ws24
+bindsym $mod+Mod1+Shift+5 move container to workspace number $ws25
 
 
 
@@ -157,17 +180,19 @@ exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpaper.png &
 exec_always --no-startup-id dunst -config ~/.config/dunst/dunstrc
 exec_always --no-startup-id autotiling
 exec_always --no-startup-id setxkbmap -layout us -variant intl
-exec_always --no-startup-id xrandr --output HDMI-0 --mode 1920x1080 --pos 3440x360 --rotate normal --output DP-4 --primary --mode 3440x1440 --pos 0x0 --rotate normal --rate 165.00
+#exec_always --no-startup-id xrandr --output HDMI-0 --mode 1920x1080 --pos 3440x360 --rotate normal --output DP-0 --mode 2560x1080 --pos 0x360 --rotate normal --rate 75.00 --output DP-4 --primary --mode 3440x1440 --pos 0x0 --rotate normal --rate 165.00
+exec_always --no-startup-id xrandr --output HDMI-0 --mode 1920x1080 --pos 6000x360 --rotate normal --output DP-0 --mode 2560x1080 --pos 0x360 --rotate normal --output DP-4 --primary --mode 3440x1440 --pos 2560x0 --rotate normal --rate 165.00
+
 exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh,secrets,pkcs11
 exec_always --no-startup-id picom
-
+exec_always pactl load-module module-remap-sink sink_name=isolated
+exec_always pactl load-module module-remap-sink sink_name=music
 
 
 # some other customization
 default_border pixel 2
 gaps inner 6px
-
-
+gaps top 30px
 # force float apps
 for_window [class="Galculator" instance="galculator"] floating enable
 
