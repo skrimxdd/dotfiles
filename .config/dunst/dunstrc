@@ -33,7 +33,7 @@
     origin = bottom-left
 
     # Offset from the origin
-    offset = 6x6
+    offset = 5x5
 
     # Scale factor. It is auto-detected if value is 0.
     scale = 0
@@ -76,10 +76,10 @@
     separator_height = 1
 
     # Padding between text and separator.
-    padding = 8
+    padding = 6
 
     # Horizontal padding.
-    horizontal_padding = 10
+    horizontal_padding = 6
 
     # Padding between text and icon.
     text_icon_padding = 0

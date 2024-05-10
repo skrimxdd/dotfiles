@@ -6,3 +6,6 @@ style = "Beam"
 [window.padding]
 x = 6
 y = 6
+
+[font]
+size = 10
