@@ -1,9 +1,2 @@
-i3
-rofi
-polybar
-dunst
-[FT-Labs picom fork](https://github.com/FT-Labs/picom)
-
-using https://github.com/dracula/dracula-theme
-
-my configs look fucked up i dont care tbh xdd
+i3 dots (wip)
+![2024-05-10_04-45](https://github.com/skrimxdd/dotfiles/assets/136272013/19289fea-30c4-4d4e-a5b1-48a16a3b5424)
