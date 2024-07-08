@@ -164,20 +164,23 @@ client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
 client.background       #F8F8F2
 
 # auto start
-exec_always --no-startup-id ~/.config/polybar/launch.sh &
-exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpaper.png &
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpaper.png
 exec_always --no-startup-id dunst -config ~/.config/dunst/dunstrc
 exec_always --no-startup-id autotiling
-exec_always --no-startup-id xinput set-prop 14 "libinput Accel Profile Enabled" 0 1 0  
+exec --no-startup-id xinput set-prop 14 "libinput Accel Profile Enabled" 0 1 0  
+exec_always --no-startup-id setxkbmap -layout us -variant intl
 #exec_always --no-startup-id conky conky.conf
 exec_always --no-startup-id picom
-exec_always --no-startup-id pactl load-module module-remap-sink sink_name=isolated
-exec_always --no-startup-id pactl load-module module-remap-sink sink_name=music
+exec --no-startup-id pactl load-module module-remap-sink sink_name=isolated
+exec --no-startup-id pactl load-module module-remap-sink sink_name=music
 
 # some other customization
 default_border pixel 2
 gaps inner 6px
 gaps top 30px
+title_align center
+
 # force float apps
 for_window [class="Galculator" instance="galculator"] floating enable
 
