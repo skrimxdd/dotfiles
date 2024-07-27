@@ -16,7 +16,7 @@ configuration {
     selected-background: @active-background;
     selected-urgent-background: @urgent-background;
     selected-active-background: @active-background;
-    separatorcolor: @active-background;
+    separatorcolor: #6272A4;
     bordercolor: @active-background;
 }
 
@@ -45,7 +45,7 @@ listview {
     border:       0px;
     border-color: @bordercolor;
     spacing:      2px ;
-    scrollbar:    false;
+    scrollbar:    true;
     padding:      2px 0px 0px ;
 }
 element {
@@ -89,10 +89,11 @@ element.alternate.active {
     text-color:       @foreground;
 }
 scrollbar {
-    width:        2px ;
+    width:        4px ;
     border:       0;
     handle-width: 8px ;
     padding:      0;
+    handle-color: #6272A4;
 }
 sidebar {
     border:       2px dash 0px 0px ;

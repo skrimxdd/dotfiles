@@ -10,7 +10,7 @@ exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 floating_modifier $mod
-tiling_drag modifier titlebar
+tiling_drag modifier
 
 # binds
 bindsym $mod+q kill
@@ -57,7 +57,7 @@ bindsym $mod+f fullscreen toggle
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+ctl+space focus mode_toggle
+bindsym $mod+ctrl+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -168,9 +168,8 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpaper.png
 exec_always --no-startup-id dunst -config ~/.config/dunst/dunstrc
 exec_always --no-startup-id autotiling
-exec --no-startup-id xinput set-prop 14 "libinput Accel Profile Enabled" 0 1 0  
+exec_always --no-startup-id xinput set-prop 10 296 0, 1, 0
 exec_always --no-startup-id setxkbmap -layout us -variant intl
-#exec_always --no-startup-id conky conky.conf
 exec_always --no-startup-id picom
 exec --no-startup-id pactl load-module module-remap-sink sink_name=isolated
 exec --no-startup-id pactl load-module module-remap-sink sink_name=music
@@ -183,4 +182,3 @@ title_align center
 
 # force float apps
 for_window [class="Galculator" instance="galculator"] floating enable
-
