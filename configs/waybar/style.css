@@ -1,0 +1,50 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: Noto Sans Nerd Font;
+    font-size: 12pt;
+    min-height: 0;
+}
+
+window#waybar {
+    background: #282A36;
+    color: white;
+}
+
+tooltip {
+  background: #1d1f21;
+  border: 1px solid #327bd1;
+}
+
+tooltip label {
+  color: white;
+}
+
+#workspaces button {
+    padding: 0 0px;
+    background: #282A36;
+    color: white;
+    margin-left: 3px;
+}
+
+#workspaces button.focused {
+    background: #6272A4;
+}
+
+#workspaces button.active {
+    background: #6272A4;
+    color: #282A36;
+}
+
+#pulseaudio {
+	padding-right: 10px
+}
+
+#clock {
+	padding-right: 10px
+}
+
+#tray {
+	padding-right: 10px
+}
+
