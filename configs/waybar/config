@@ -1,11 +1,14 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 24,
-  "spacing": 4,
+  "height": 16,
+  "spacing": 6,
+  "margin-top": 6,
+  "margin-bot": 6,
+  "margin-left": 6,
+  "margin-right": 6,
   "modules-left": [
     "hyprland/workspaces",
-    "custom/seperator",
     "hyprland/window"
   ],
   "modules-center": [
@@ -13,13 +16,9 @@
   ],
   "modules-right": [
     "tray",
-    "custom/seperator",
     "custom/spotify",
-    "custom/seperator",
     "pulseaudio",
-    "custom/seperator",
-    "group/group-power"
-],
+  ],
   "wlr/taskbar": {
     "on-click": "activate",
     "on-click-middle": "close",
@@ -33,26 +32,15 @@
     "on-scroll-down": "hyprctl dispatch workspace e+1"
   },
   "hyprland/window": {
-    "max-length": 128
+    "max-length": 128,
+    "separate-outputs": true
   },
   "clock": {
     "format": "{:%d.%m l %H:%M}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
   },
   "tray": {
-    "spacing": -6
-  },
-  "custom/weather": {
-    "exec": "~/.config/waybar/wittr.sh",
-    "return-type": "json",
-    "format": "{}",
-    "tooltip": true,
-    "interval": 900
-  },
-  "hyprland/language": {
-    "format-pl": "[pl]",
-    "format-en": "[us]",
-    "on-click": "hyprctl switchxkblayout at-translated-set-2-keyboard next"
+    "spacing": 4,
   },
   "pulseaudio": {
     "format": "<span color=\"#6272A4\">{icon}</span> {volume}%",
@@ -60,6 +48,7 @@
     "format-icons": {
         "default": ["󰖀", "󰕾"]
     },
+    "on-click": "pavucontrol"
   },
   "custom/seperator": {
     "format": "<span color=\"#BD93F9\">l</span>",
@@ -74,38 +63,11 @@
     "on-scroll-up": "playerctl next",
     "on-scroll-down": "playerctl previous"
     },
-    "group/group-power": {
-    "orientation": "inherit",
-    "drawer": {
-        "transition-duration": 500,
-        "children-class": "not-power",
-        "transition-left-to-right": false,
-    },
-    "modules": [
-        "custom/power", // First element is the "group leader" and won't ever be hidden
-        "custom/shutdown",
-        "custom/quit",
-        "custom/reboot",
-    ]
-    },
-    "custom/shutdown": {
-        "format": "shutdown ",
-        "tooltip": false,
-        "on-click": "shutdown"
-    },
-    "custom/quit": {
-        "format": "logout ",
-        "tooltip": false,
-        "on-click": "hyprctl dispatch exit"
-    },
-    "custom/reboot": {
-        "format": "reboot ",
-        "tooltip": false,
-        "on-click": "reboot"
-    },
-    "custom/power": {
-        "format": "<span color=\"#6272A4\">󰐥 </span>",
-        "tooltip": false,
-        "on-click": "shutdown now"
-    },
+  "custom/media": {
+    "format": "<span color=\"#6272A4\"> </span> {}",
+    "escape": true,
+    "return-type": "json",
+    "max-length": 40,
+    "exec": "python .config/waybar/scripts/mediaplayer.py 2> /dev/null", // Script in resources/custom_modules folder
+  },
 },
