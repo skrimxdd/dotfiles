@@ -1,3 +1,5 @@
+DONT USE THE install.sh 
+
 i3
 ![image](https://github.com/skrimxdd/dotfiles/assets/136272013/19289fea-30c4-4d4e-a5b1-48a16a3b5424)
 hyprland
