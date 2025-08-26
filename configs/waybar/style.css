@@ -13,13 +13,18 @@ window#waybar {
     color: white;
 }
 
+#waybar > box {
+    margin: 6px 6px 6px 6px; 
+}
+
 tooltip {
-  background: #282A36;
-  border: 2px solid #44475A;
+    background: #282A36;
+    border: 2px solid #44475A;
+    border-radius: 4px;
 }
 
 tooltip label {
-  color: white;
+    color: white;
 }
 
 #workspaces {
@@ -42,10 +47,10 @@ tooltip label {
 }
 
 button:hover {
-  box-shadow: none;
-  text-shadow: none;
-  background: none;
-  transition: none;
+    box-shadow: none;
+    text-shadow: none;
+    background: none;
+    transition: none;
 }
 
 #window {
@@ -54,6 +59,7 @@ button:hover {
     color: white;
     border: 2px solid #44475A;
     border-radius: 4px;
+    box-shadow: 3px 3px 3px #1a1a1aee;
 }
 
 window#waybar.empty #window {
@@ -93,3 +99,22 @@ window#waybar.empty #window {
     border-radius: 4px;
 }
 
+#privacy {
+    padding: 0 4px;
+    background: #282A36;
+    color: white;
+    border: 2px solid #44475A;
+    border-radius: 4px;
+}
+
+#privacy-item {
+    color: #FF5555;
+}
+
+#network {
+    padding: 0 4px;
+    background: #282A36; 
+    color: white;
+    border: 2px solid #44475A;
+    border-radius: 4px;
+ }

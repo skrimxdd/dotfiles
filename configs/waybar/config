@@ -1,12 +1,9 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 16,
+  "height": 28,
+  "max-height": 28,
   "spacing": 6,
-  "margin-top": 6,
-  "margin-bot": 6,
-  "margin-left": 6,
-  "margin-right": 6,
   "modules-left": [
     "hyprland/workspaces",
     "hyprland/window"
@@ -16,6 +13,7 @@
   ],
   "modules-right": [
     "tray",
+    "privacy",
     "custom/spotify",
     "pulseaudio",
   ],
@@ -48,13 +46,14 @@
     "format-icons": {
         "default": ["󰖀", "󰕾"]
     },
-    "on-click": "pavucontrol"
+    "on-click-right": "pavucontrol", 
+    "on-click": "playerctl play-pause",
   },
-  "custom/seperator": {
-    "format": "<span color=\"#BD93F9\">l</span>",
-    "interval": "once",
-    "tooltip": false
-    },
+  "pulseaudio/slider": {
+    "min": 0,
+    "max": 100,
+    "orientation": "horizontal"
+  },
   "custom/spotify": {
     "exec": "python .config/waybar/scripts/mediaplayer.py --player spotify",
     "format": "<span color=\"#6272A4\"> </span>{}",
@@ -69,5 +68,34 @@
     "return-type": "json",
     "max-length": 40,
     "exec": "python .config/waybar/scripts/mediaplayer.py 2> /dev/null", // Script in resources/custom_modules folder
+  },
+  "network": {
+    "interface": "enp5s0",
+    "format": "{ifname}",
+    "format-wifi": "{essid} ({signalStrength}%) ",
+    "format-ethernet": "<span color=\"#6272A4\"></span>",
+    "format-disconnected": "", //An empty format will hide the module.
+    "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+    "tooltip-format-ethernet": "{ifname} ",
+    "tooltip-format-disconnected": "Disconnected",
+    "max-length": 50
+  },
+  "privacy": {
+    "icon-spacing": 6,
+    "icon-size": 12,
+    "transition-duration": 250,
+    "modules": [
+        {
+          "type": "screenshare",
+          "tooltip": true,
+          "tooltip-icon-size": 24
+        },
+        {
+            "type": "audio-in",
+            "tooltip": true,
+            "tooltip-icon-size": 24
+        }
+    ]
   },
 },

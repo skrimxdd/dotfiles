@@ -1,0 +1,133 @@
+[{
+      "layer": "top",
+      "position": "left",
+      "width": 28,
+      "spacing": 6,
+      "orientation": "vertical",
+      "modules-left": [
+        "hyprland/workspaces",
+      ],
+      "modules-right": [
+        "tray",
+     ],
+      "wlr/taskbar": {
+        "on-click": "activate",
+        "on-click-middle": "close",
+        "ignore-list": [
+        "foot"
+        ]
+    },    
+    "wlr/workspaces": {
+      "on-click": "activate",
+      "on-scroll-up": "hyprctl dispatch workspace e-1",
+      "on-scroll-down": "hyprctl dispatch workspace e+1"
+    },
+    "hyprland/window": {
+      "max-length": 128,
+      "separate-outputs": true
+    },
+    "clock": {
+      "format": "{:%d.%m l %H:%M}",
+      "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+    "tray": {
+      "spacing": 4,
+    },
+    "pulseaudio": {
+      "format": "<span color=\"#6272A4\">{icon}</span> {volume}%",
+      "format-muted": "<span color=\"#FF5555\">󰝟</span> {volume}%",
+      "format-icons": {
+          "default": ["󰖀", "󰕾"]
+      },
+      "on-click-right": "pavucontrol", 
+      "on-click": "playerctl play-pause",
+    },
+    "pulseaudio/slider": {
+      "min": 0,
+      "max": 100,
+      "orientation": "horizontal"
+    },
+    "custom/spotify": {
+      "exec": "python .config/waybar/scripts/mediaplayer.py --player spotify",
+      "format": "<span color=\"#6272A4\"> </span>{}",
+      "return-type": "json",
+      "on-click": "playerctl play-pause",
+      "on-scroll-up": "playerctl next",
+      "on-scroll-down": "playerctl previous"
+    },
+    "custom/media": {
+      "format": "<span color=\"#6272A4\"> </span> {}",
+      "escape": true,
+      "return-type": "json",
+      "max-length": 40,
+      "exec": "python .config/waybar/scripts/mediaplayer.py 2> /dev/null", // Script in resources/custom_modules folder
+    },
+  },
+    {
+    "layer": "top",
+    "position": "top",
+    "height": 28,
+    "spacing": 6,
+    "modules-left": [
+      "hyprland/window"
+    ],
+    "modules-center": [
+      "clock"
+    ],
+    "modules-right": [
+      "custom/spotify",
+      "pulseaudio",
+    ],
+    "wlr/taskbar": {
+      "on-click": "activate",
+      "on-click-middle": "close",
+      "ignore-list": [
+        "foot"
+      ]
+    },
+    "wlr/workspaces": {
+      "on-click": "activate",
+      "on-scroll-up": "hyprctl dispatch workspace e-1",
+      "on-scroll-down": "hyprctl dispatch workspace e+1"
+    },
+    "hyprland/window": {
+      "max-length": 128,
+      "separate-outputs": true
+    },
+    "clock": {
+      "format": "{:%d.%m l %H:%M}",
+      "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+    "tray": {
+      "spacing": 4,
+    },
+    "pulseaudio": {
+      "format": "<span color=\"#6272A4\">{icon}</span> {volume}%",
+      "format-muted": "<span color=\"#FF5555\">󰝟</span> {volume}%",
+      "format-icons": {
+          "default": ["󰖀", "󰕾"]
+      },
+      "on-click-right": "pavucontrol", 
+      "on-click": "playerctl play-pause",
+    },
+    "pulseaudio/slider": {
+      "min": 0,
+      "max": 100,
+      "orientation": "horizontal"
+    },
+    "custom/spotify": {
+      "exec": "python .config/waybar/scripts/mediaplayer.py --player spotify",
+      "format": "<span color=\"#6272A4\"> </span>{}",
+      "return-type": "json",
+      "on-click": "playerctl play-pause",
+      "on-scroll-up": "playerctl next",
+      "on-scroll-down": "playerctl previous"
+     },
+    "custom/media": {
+      "format": "<span color=\"#6272A4\"> </span> {}",
+      "escape": true,
+      "return-type": "json",
+      "max-length": 40,
+      "exec": "python .config/waybar/scripts/mediaplayer.py 2> /dev/null", // Script in resources/custom_modules folder
+    },
+}]

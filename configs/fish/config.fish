@@ -7,3 +7,4 @@ if status is-interactive
 end
 
 set -g fish_greeting ""
+starship init fish | source

@@ -1,0 +1,3 @@
+
+2024/08/21 (00:04:22) | ===> btop++ v.1.3.2
+2024/08/21 (00:04:22) | WARNING: Failed to get disk/partition stats for mount "/mnt/1TB" with statvfs error code: 2. Ignoring...
